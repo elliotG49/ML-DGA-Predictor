@@ -40,7 +40,7 @@ y_pred = rf_model.predict(X_test)
 test_accuracy = accuracy_score(y_test, y_pred)
 
 print(f"Test Accuracy: {test_accuracy:.4f}")
-print("\nClassification Report:")
+print("\nClassification Report:") 
 print(classification_report(y_test, y_pred))
 
 # 8. Confusion Matrix (numeric)

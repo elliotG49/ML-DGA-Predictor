@@ -1,0 +1,13 @@
+pandas==1.5.3
+seaborn==0.12.2
+matplotlib==3.7.2
+scikit-learn==1.6.0
+joblib==1.4.2
+skl2onnx==1.18.0
+onnx==1.17.0
+onnxconverter-common==1.14.0
+protobuf==3.20.2
+packaging==24.2
+numpy==2.2.1
+scipy==1.14.1
+threadpoolctl==3.5.0

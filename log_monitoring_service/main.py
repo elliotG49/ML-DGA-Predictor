@@ -131,7 +131,7 @@ class DNSLogHandler(FileSystemEventHandler):
 
 def main():
     # Configuration - these can be parameterized or loaded from environment variables
-    LOGFILE = "/var/log/zeek/dns.log"  # Path to Zeek's dns.log
+    LOGFILE = "/opt/zeek/logs/current/dns.log"  # Path to Zeek's dns.log
     API_URL = "http://localhost:8000/predict"  # Prediction Microservice API endpoint
     BLACKLIST_PATH = "/etc/blacklist/domains.txt"  # Path to blacklist file
 

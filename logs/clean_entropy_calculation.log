@@ -1,0 +1,45 @@
+2025-01-06 16:43:30,199:INFO:Successfully read the input file: /root/project-mitnick/datasets/dga_data.csv
+2025-01-06 16:43:30,199:INFO:Initial number of entries: 160000
+2025-01-06 16:43:30,217:INFO:Removed 2 entries with missing 'domain' values.
+2025-01-06 16:43:30,803:INFO:Computed entropy for all cleaned domains.
+2025-01-06 16:43:30,815:INFO:Entropy statistics:
+count    159998.000000
+mean          3.111210
+std           0.587743
+min          -0.000000
+25%           2.750000
+50%           3.121900
+75%           3.461300
+max           4.777300
+Name: entropy, dtype: float64
+2025-01-06 16:43:31,157:INFO:Cleaned data with entropy saved to domains_cleaned_with_entropy.csv
+2025-01-06 16:45:06,279:INFO:Successfully read the input file: /root/project-mitnick/datasets/dga_data.csv
+2025-01-06 16:45:06,279:INFO:Initial number of entries: 160000
+2025-01-06 16:45:06,293:INFO:Removed 2 entries with missing 'domain' values.
+2025-01-06 16:45:06,921:INFO:Computed entropy for all cleaned domains.
+2025-01-06 16:45:06,929:INFO:Entropy statistics:
+count    159998.000000
+mean          3.111210
+std           0.587743
+min          -0.000000
+25%           2.750000
+50%           3.121900
+75%           3.461300
+max           4.777300
+Name: entropy, dtype: float64
+2025-01-06 16:45:06,930:ERROR:An error occurred while writing to the file: Cannot save file into a non-existent directory: '/root/project-mitnick/datasets/dga_data.csv'
+2025-01-06 16:51:40,969:INFO:Successfully read the input file: /root/project-mitnick/datasets/dga_data.csv
+2025-01-06 16:51:40,970:INFO:Initial number of entries: 160000
+2025-01-06 16:51:40,987:INFO:Removed 2 entries with missing 'domain' values.
+2025-01-06 16:51:41,546:INFO:Computed entropy for all cleaned domains.
+2025-01-06 16:51:41,557:INFO:Entropy statistics:
+count    159998.000000
+mean          3.111210
+std           0.587743
+min          -0.000000
+25%           2.750000
+50%           3.121900
+75%           3.461300
+max           4.777300
+Name: entropy, dtype: float64
+2025-01-06 16:51:41,901:INFO:Cleaned data with entropy saved to /root/project-mitnick/datasets/domains_cleaned_with_entropy.csv

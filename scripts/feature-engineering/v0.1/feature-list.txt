@@ -1,0 +1,9 @@
+1. String Entropy
+2. Huffman Compression Ratio
+3. Length of domain
+4. Longest word that appears in a dictionary
+5. Number of sub substrings that appear in dictionaries
+6. Does the string have a consecutive vowel and consonant distribution (Binary)
+7. Number of bigrams that 'should' not appear in language
+8. Number of bigrams that appear frequently in langauge
+9. frequency of numbers within domain

@@ -1,3 +1,4 @@
 *.joblib
 models/
 venv/
+scripts/dga-algorithms/

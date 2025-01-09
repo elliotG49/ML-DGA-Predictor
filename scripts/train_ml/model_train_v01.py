@@ -10,7 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 # 1. Load the dataset with your computed numeric features
-data_path = "/root/project-mitnick/datasets/domains_with_features_v01.csv"
+data_path = "/root/project-mitnick/datasets/cleaned_featured/domains_with_features_v01.csv"
 data = pd.read_csv(data_path)
 
 # Drop rows with NaNs if necessary
@@ -27,15 +27,13 @@ feature_columns = [
     "domain_length",
     "longest_dict_word_length",
     "num_substrings_in_dict",
-    "vowel_consonant_binary",
     "num_uncommon_bigrams",
     "num_common_bigrams",
-    "number_frequency"
 ]
 X = data[feature_columns].values
 
 # 4. Set up Stratified K-Fold
-n_splits = 10  # for example, 5-fold cross-validation
+n_splits = 10
 skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
 
 # Lists to store per-fold metrics
@@ -96,7 +94,6 @@ plt.ylabel("True Label")
 plt.show()
 
 # 8. (Optional) Retrain a final model on the entire dataset
-#    so you have a single model to use in production.
 final_scaler = MinMaxScaler()
 X_scaled = final_scaler.fit_transform(X)
 final_model = RandomForestClassifier(n_estimators=165, random_state=42, n_jobs=-1)
@@ -110,3 +107,25 @@ joblib.dump(final_scaler, scaler_path)
 
 print(f"Final Random Forest model saved to {model_path}")
 print(f"Final scaler saved to {scaler_path}")
+
+# 10. Show Feature Importances (after final training)
+importances = final_model.feature_importances_
+
+# Create a DataFrame with feature names and their importances
+importance_df = pd.DataFrame({
+    'Feature': feature_columns,
+    'Importance': importances
+})
+
+# Sort by importance (descending)
+importance_df.sort_values('Importance', ascending=False, inplace=True)
+
+print("\n--- Feature Importances (Final Model) ---")
+print(importance_df)
+
+# Optional: Visualize feature importances as a bar chart
+plt.figure(figsize=(8, 5))
+sns.barplot(data=importance_df, x='Importance', y='Feature', palette='viridis')
+plt.title("Random Forest Feature Importances")
+plt.tight_layout()
+plt.show()

@@ -2,7 +2,7 @@ import csv
 
 from string_entropy import calculate_string_entropy
 from huffman_compression_ratio import huffman_compression_ratio
-from string_length import domain_length
+from domain_length import domain_length
 from longest_dict_word import longest_dictionary_word
 from dict_substring_count import count_dictionary_substrings
 from consecutive_vc_distribution import has_strict_vowel_consonant_pattern
@@ -43,8 +43,8 @@ def load_bigrams(bigrams_csv_path: str) -> set:
 def main():
     # Example file paths (adjust to your actual paths)
     dict_file_path = "/root/project-mitnick/dictionaries/"
-    dataset_file_path = "/root/project-mitnick/datasets/"
-    domain_csv_path = f"{dataset_file_path}dga_data.csv"                     # Input CSV with a column "domain"
+    dataset_file_path = "/root/project-mitnick/datasets/raw/"
+    domain_csv_path = f"{dataset_file_path}dataset.csv"                     # Input CSV with a column "domain"
     output_csv_path = f"{dataset_file_path}domains_with_features_v01.csv"       # Output CSV
     english_dict_path = f"{dict_file_path}english_wordlist.csv"        # CSV with English words
     common_bigrams_path = f"{dict_file_path}common_bigrams.csv"          # CSV with frequent bigrams

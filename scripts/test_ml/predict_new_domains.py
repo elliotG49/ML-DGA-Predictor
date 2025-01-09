@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 import sys
 
-sys.path.append("/root/project-mitnick/scripts/features")
+sys.path.append("/root/project-mitnick")
 # Import your feature functions
 from scripts.features.string_entropy import calculate_string_entropy
 from scripts.features.huffman_compression_ratio import huffman_compression_ratio
@@ -77,7 +77,7 @@ def main():
     uncommon_bigrams_set = load_bigrams(uncommon_bigrams_path)
 
     # 4. Read the text file containing new domains (one per line)
-    test_domains_file = "/root/project-mitnick/datasets/new-dga-domains.txt"
+    test_domains_file = "/root/project-mitnick/datasets/testing/new-dga-domains.txt"
     with open(test_domains_file, "r", encoding="utf-8") as f:
         new_domains = [line.strip() for line in f if line.strip()]
 
@@ -103,10 +103,8 @@ def main():
         "domain_length",
         "longest_dict_word_length",
         "num_substrings_in_dict",
-        "vowel_consonant_binary",
         "num_uncommon_bigrams",
         "num_common_bigrams",
-        "number_frequency"
     ]
     X = df_features[feature_order].values
     X_scaled = scaler.transform(X)
@@ -127,6 +125,14 @@ def main():
     print("\nClassification Results for New Domains:")
     for domain, label in results:
         print(f"{domain} -> {label}")
+    
+    total_domains = len(results)
+    dga_count = sum(1 for _, lbl in results if lbl == "dga")
+    dga_percentage = (dga_count / total_domains * 100) if total_domains > 0 else 0
+    
+    print(f"\nOut of {total_domains} domains, {dga_count} were classified as 'dga'.")
+    print(f"That's {dga_percentage:.2f}% of the total domains.\n")
+
 
     # (Optional) Save results to a CSV
     # df_results = pd.DataFrame(results, columns=["domain", "prediction"])
